@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from predict import predict
 import pandas as pd
+
 app = Flask(__name__)
+CORS(app=app, origins=["http://localhost:3000", "http://127.0.0.1:3000"])
 
 @app.route("/predict", methods=["POST"])
 def handle_predict():
